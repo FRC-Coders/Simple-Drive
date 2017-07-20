@@ -7,6 +7,15 @@ package org.usfirst.frc.team4320.robot;
  * floating around.
  */
 public class RobotMap {
+	
+	//Joystick port
+	public static final int JOYSTICK_PORT = 0 ;
+	
+    //PWM ports
+	public static final int LEFT_TALON = 0;
+	public static final int RIGHT_TALON = 1;
+	
+	
 	// For example to map the left and right motors, you could define the
 	// following variables to use with your drivetrain subsystem.
 	// public static int leftMotor = 1;

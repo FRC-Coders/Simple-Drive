@@ -8,9 +8,8 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-import org.usfirst.frc.team4320.robot.commands.ExampleCommand;
-import org.usfirst.frc.team4320.robot.subsystems.ExampleSubsystem;
-
+import org.usfirst.frc.team4320.robot.commands.DriveCommand;
+import org.usfirst.frc.team4320.robot.subsystems.DriveSubsystem;
 /**
  * The VM is configured to automatically run this class, and to call the
  * functions corresponding to each mode, as described in the IterativeRobot
@@ -20,8 +19,8 @@ import org.usfirst.frc.team4320.robot.subsystems.ExampleSubsystem;
  */
 public class Robot extends IterativeRobot {
 
-	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
-	public static OI oi;
+	public static final DriveSubsystem drivesubsystem = DriveSubsystem.getInstance();//creating the "drivesubsystem" object using singleton
+	public static OI oi;//creating the "oi" object
 
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
@@ -33,7 +32,7 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void robotInit() {
 		oi = new OI();
-		chooser.addDefault("Default Auto", new ExampleCommand());
+		chooser.addDefault("Default Auto", new DriveCommand());
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", chooser);
 	}
